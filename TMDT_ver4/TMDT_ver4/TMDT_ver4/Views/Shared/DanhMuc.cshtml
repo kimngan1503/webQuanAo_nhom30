@@ -1,0 +1,24 @@
+﻿@model List<Models.EF.DanhMuc>
+
+<nav class="navbar bg-light">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <h3>Danh Mục</h3>
+        </li>
+        @{
+            Models.EF.Model1 db = new Models.EF.Model1();
+            foreach (var item in Model)
+            {
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-cog"></i>@item.TenDanhMuc</a>
+                    <ul class="dropdown-menu">
+                        @foreach (var itemLoai in db.Loais.Where(x => x.IDdanhmuc == item.IDdanhmuc))
+                        {
+                            <li><a href="@Url.Action("LoaiSP","SanPham", new { id = itemLoai.IDloai})">@itemLoai.TenLoai</a></li>
+                        }
+                    </ul>
+                </li>
+            }
+        }
+    </ul>
+</nav>

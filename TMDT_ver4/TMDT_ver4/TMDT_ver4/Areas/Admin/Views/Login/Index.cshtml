@@ -1,0 +1,60 @@
+﻿@model TMDT_ver4.Areas.Admin.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Asset/Admin/Login/test.css" type="text/css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Tạo Tài Khoản</h1>                        
+                <input type="text" placeholder="Name" />
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <button>Đăng Ký</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+            {
+                @Html.ValidationSummary(false,"", new { @class = "text-danger" })
+                <h1>Đăng Nhập</h1>
+                @*<div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>Or use your account</span>*@
+                @Html.TextBoxFor(model => model.UserName, new { @class= "form-control", @autofocus="autofocus", placeholder = "Tên Tài Khoản"})
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Mật Khẩu"})                
+                <button type="submit">Đăng Nhập</button>
+            }
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Chào mừng trở lại!</h1>
+                    <p>Để tiếp tục kết nối với chúng tôi mời bạn đăng nhập tài khoản</p>
+                    <button class="ghost" id="signIn">Đăng Nhập</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Chào bạn!</h1>
+                    <p>Hãy gia nhập với chúng tôi để trở thành những khách hàng thân thiết</p>
+                    <button class="ghost" id="signUp">Đăng Ký</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Asset/Admin/Login/test1.js"></script>
+</body>
+</html>

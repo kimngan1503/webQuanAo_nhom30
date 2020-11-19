@@ -1,0 +1,184 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listNewPro = (List<Models.EF.SanPham>)ViewBag.SanPhamMoi;
+    var listSalePro = (List<Models.EF.SanPham>)ViewBag.SanPhamGiam;
+}
+
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-md-3">
+                @{ Html.RenderAction("DanhMuc", "Danhmuc");}
+            </div>
+            <div class="col-md-6">
+                <div class="header-slider normal-slider">
+                    <div class="header-slider-item">
+                        <img src="~/Asset/Shop/Home/img/slider-1.jpg" alt="Slider Image" />                        
+                    </div>
+                    <div class="header-slider-item">
+                        <img src="~/Asset/Shop/Home/img/slider-2.jpg" alt="Slider Image" />
+                        
+                    </div>
+                    <div class="header-slider-item">
+                        <img src="~/Asset/Shop/Home/img/slider-3.jpg" alt="Slider Image" />
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="header-img">
+                    <div class="img-item">
+                        <img src="~/Asset/Shop/Home/img/category-1.jpg" />
+                        <a class="img-text" href="">                            
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <img src="~/Asset/Shop/Home/img/category-2.jpg" />
+                        <a class="img-text" href="">                           
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+<div class="category">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="category-item ch-400">
+                    <img src="~/Asset/Shop/Home/img/category-3.jpg" />
+                    <a class="category-name" href="">
+                        <p>Some text goes here that describes the image</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="category-item ch-250">
+                    <img src="~/Asset/Shop/Home/img/category-4.jpg" />
+                    <a class="category-name" href="">
+                        <p>Some text goes here that describes the image</p>
+                    </a>
+                </div>
+                <div class="category-item ch-150">
+                    <img src="~/Asset/Shop/Home/img/category-5.jpg" />
+                    <a class="category-name" href="">
+                        <p>Some text goes here that describes the image</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="category-item ch-150">
+                    <img src="~/Asset/Shop/Home/img/category-6.jpg" />
+                    <a class="category-name" href="">
+                        <p>Some text goes here that describes the image</p>
+                    </a>
+                </div>
+                <div class="category-item ch-250">
+                    <img src="~/Asset/Shop/Home/img/category-7.jpg" />
+                    <a class="category-name" href="">
+                        <p>Some text goes here that describes the image</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="category-item ch-400">
+                    <img src="~/Asset/Shop/Home/img/category-8.jpg" />
+                    <a class="category-name" href="">
+                        <p>Some text goes here that describes the image</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="featured-product product">
+    <div class="container-fluid">
+        <div class="section-header">
+            <h1>Sản Phẩm Mới</h1>
+        </div>
+        <div class="row align-items-center product-slider product-slider-4">
+            @foreach (var item in listNewPro)
+            {               
+                <div class="col-lg-3">
+                    <div class="product-item">
+                        <div class="product-title">
+                            <a href="@Url.Action("Detail","SanPham" , new { id=item.IDsanpham })">@item.TenSanPham</a>
+                            <div class="ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-image">
+                            <a href="@Url.Action("Detail","SanPham", new { id=item.IDsanpham })">
+                                <img src="@item.HinhAnh" alt="@item.TenSanPham">
+                            </a>
+                            <div class="product-action">
+                                <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                <a href="#"><i class="fa fa-heart"></i></a>
+                                <a href="#"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <div class="product-price">
+                            <h3 style="font-size: 25px;">@item.Gia.000 VND</h3>
+                            <a class="btn" href="@Url.Action("ThemSP","GioHang", new { sanPhamID = item.IDsanpham})"><i class="fa fa-shopping-cart"></i>Thêm</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div style="text-align:right; margin-top:20px;">
+            <a href="#">Xem Thêm</a>
+        </div>
+    </div>
+</div>
+ 
+<div class="recent-product product">
+    <div class="container-fluid">
+        <div class="section-header">
+            <h1>Sản Phẩm Giám Giá</h1>
+        </div>
+        <div class="row align-items-center product-slider product-slider-4">
+            @foreach (var item in listSalePro)
+            {
+                <div class="col-lg-3">
+                    <div class="product-item">
+                        <div class="product-title">
+                            <a href="@Url.Action("Detail","SanPham", new { id=item.IDsanpham })">@item.TenSanPham</a>
+                            <div class="ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-image">
+                            <a href="@Url.Action("Detail","SanPham", new { id=item.IDsanpham })">
+                                <img src="@item.HinhAnh" alt="@item.TenSanPham">
+                            </a>
+                            <div class="product-action">
+                                <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                <a href="#"><i class="fa fa-heart"></i></a>
+                                <a href="#"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <div class="product-price">
+                            <h3 style="font-size: 25px;">@item.GiamGia.000VND</h3>
+                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Thêm</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div style="text-align:right; margin-top:20px;">
+            <a href="#">Xem Thêm</a>
+        </div>
+    </div>
+</div>
+ 

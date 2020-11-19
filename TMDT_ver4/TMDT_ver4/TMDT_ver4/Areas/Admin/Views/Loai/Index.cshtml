@@ -1,0 +1,47 @@
+﻿@model PagedList.IPagedList<Models.EF.Loai>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{Loại}
+<div class="col-md-12">
+    <div class="card card-plain">
+        <div class="card-header">
+            <h4 class="card-title"> Danh Sách Loại Sản Phẩm</h4>
+            <div class="panel-heading">
+                <a class="btn btn-primary btn-default" href="@Url.Action("Create", "Loai")" role="button">Thêm loại sản phẩm</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                        <tr>
+                            <th>Tên Loại Sản Phẩm</th>
+                            <th>Tên Danh Mục</th>
+                            <th>#</th>
+                        </tr>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.TenLoai
+                                </td>
+                                <td>@item.IDdanhmuc</td>
+                                <td>
+                                    <a href="/Admin/Loai/Edit/@item.IDloai">Sửa |</a>
+                                    <a href="/Admin/Loai/Delete/@item.IDloai"> Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            </div>
+        </div>
+    </div>
+</div>
+

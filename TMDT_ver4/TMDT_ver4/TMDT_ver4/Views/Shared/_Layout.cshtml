@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>30's'</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="eCommerce HTML Template Free Download" name="keywords">
+    <meta content="eCommerce HTML Template Free Download" name="description">
+
+    <!-- Favicon -->
+    <link href="~/Asset/Shop/Home/img/favicon.ico" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="~/Asset/Shop/Home/lib/slick/slick.css" rel="stylesheet">
+    <link href="~/Asset/Shop/Home/lib/slick/slick-theme.css" rel="stylesheet">
+    <link href="~/Asset/Shop/Home/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Asset/Shop/Home/css/jquery-ui.css" rel="stylesheet" />
+    <!-- Template Stylesheet -->
+    <link href="~/Asset/Shop/Home/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+   
+    <!-- Nav Bar Start -->
+    <div class="nav">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                <a href="#" class="navbar-brand">MENU</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto">
+                        <a href="@Url.Action("Index","Home")" class="nav-item nav-link active">Trang Chủ</a>
+                        <a href="product-list.html" class="nav-item nav-link">Về Chúng Tôi</a>
+                        <a href="product-detail.html" class="nav-item nav-link">Liên Hệ</a>
+                        <a href="cart.html" class="nav-item nav-link">Tin Tức</a>                                          
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tài Khoản</a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Đăng Nhập</a>
+                                <a href="#" class="dropdown-item">Đăng Ký</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Nav Bar End -->
+    <!-- Bottom Bar Start -->
+    <div class="bottom-bar">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="~/Asset/Shop/Home/img/logo.png" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="search">
+                        <form action="/SanPham/Search" method="get">
+                            <input type="text" id="txtKeyword" name="keyword" placeholder="Tìm Kiếm">
+                            <button><i class="fa fa-search"></i></button>
+                        </form>                        
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="user">
+                        @{
+                            List<TMDT_ver4.Models.GioHang> gio = Session["giohang"] as List<TMDT_ver4.Models.GioHang>;
+                            if (gio == null || gio.Count == 0)
+                            {
+                                <a href="@Url.Action("Index","GioHang")" class="btn cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>(0)</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("Index","GioHang")" class="btn cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>@gio.Count</span>
+                                </a>
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bottom Bar End -->
+    <!-- Main Slider Start -->
+    <div class="header">
+        @RenderBody()
+       
+    </div>
+    <div class="brand">
+        <div class="container-fluid">
+            <div class="brand-slider">
+                <div class="brand-item"><img src="~/Asset/Shop/Home/img/brand-1.png" alt=""></div>
+                <div class="brand-item"><img src="~/Asset/Shop/Home/img/brand-2.png" alt=""></div>
+                <div class="brand-item"><img src="~/Asset/Shop/Home/img/brand-3.png" alt=""></div>
+                <div class="brand-item"><img src="~/Asset/Shop/Home/img/brand-4.png" alt=""></div>
+                <div class="brand-item"><img src="~/Asset/Shop/Home/img/brand-5.png" alt=""></div>
+                <div class="brand-item"><img src="~/Asset/Shop/Home/img/brand-6.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Start -->
+    <div class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h2>Liên Hệ</h2>
+                        <div class="contact-info">
+                            <p><i class="fa fa-map-marker"></i>123 E Store, Tp.HCM, VietNam</p>
+                            <p><i class="fa fa-envelope"></i>email@example.com</p>
+                            <p><i class="fa fa-phone"></i>+123-456-7890</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h2>Theo Dõi</h2>
+                        <div class="contact-info">
+                            <div class="social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                                <a href=""><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h2>Thông Tin</h2>
+                        <ul>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="#">Điều khoản & điều kiện</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h2>Quy Định</h2>
+                        <ul>
+                            <li><a href="#">Quy định thanh toán</a></li>
+                            <li><a href="#">Quy định giao hàng</a></li>
+                            <li><a href="#">Quy định đổi hàng</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row payment align-items-center">
+                <div class="col-md-6">
+                    <div class="payment-method">
+                        <h2>Phương Thức Thanh Toán:</h2>
+                        <img src="~/Asset/Shop/Home/img/payment-method.png" alt="Payment Method" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="payment-security">
+                        <h2>Cung Cấp Bởi:</h2>
+                        <img src="~/Asset/Shop/Home/img/godaddy.svg" alt="Payment Security" />
+                        <img src="~/Asset/Shop/Home/img/norton.svg" alt="Payment Security" />
+                        <img src="~/Asset/Shop/Home/img/ssl.svg" alt="Payment Security" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->   
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Asset/Shop/Home/lib/easing/easing.min.js"></script>
+    <script src="~/Asset/Shop/Home/lib/slick/slick.min.js"></script>
+    <script src="~/Asset/Shop/Home/js/bootstrap.min.js"></script>
+    <script src="~/Asset/Shop/Home/js/baseController.js"></script>
+    <script src="~/Asset/Shop/Home/js/jquery-ui.js"></script>
+    <!-- Template Javascript -->
+    <script src="~/Asset/Shop/Home/js/main.js"></script>
+</body>
+</html>

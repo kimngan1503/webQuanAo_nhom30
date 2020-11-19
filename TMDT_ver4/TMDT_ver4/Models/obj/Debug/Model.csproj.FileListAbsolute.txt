@@ -1,0 +1,16 @@
+D:\TMĐT\TMDT_ver4\Models\bin\Debug\Models.dll.config
+D:\TMĐT\TMDT_ver4\Models\bin\Debug\Models.dll
+D:\TMĐT\TMDT_ver4\Models\bin\Debug\Models.pdb
+D:\TMĐT\TMDT_ver4\Models\bin\Debug\EntityFramework.dll
+D:\TMĐT\TMDT_ver4\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\TMĐT\TMDT_ver4\Models\bin\Debug\EntityFramework.xml
+D:\TMĐT\TMDT_ver4\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\TMĐT\TMDT_ver4\Models\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\TMĐT\TMDT_ver4\Models\obj\Debug\Model.csproj.CopyComplete
+D:\TMĐT\TMDT_ver4\Models\obj\Debug\Models.dll
+D:\TMĐT\TMDT_ver4\Models\obj\Debug\Models.pdb
+D:\TMĐT\TMDT_ver4\Models\bin\Debug\PagedList.dll
+D:\TMĐT\TMDT_ver4\Models\bin\Debug\PagedList.Mvc.dll
+D:\TMĐT\TMDT_ver4\Models\bin\Debug\PagedList.xml
+D:\TMĐT\TMDT_ver4\Models\bin\Debug\PagedList.Mvc.xml
+D:\TMĐT\TMDT_ver4\Models\obj\Debug\Model.csprojAssemblyReference.cache
